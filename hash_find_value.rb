@@ -6,12 +6,14 @@
 
 sample_hash = {:a => 100, :b => 200, :c => 300, :d => 400, :e => rand(200), :f => 600, :g => 0 }
 p "Enter an integer to find:"
-value = gets.chomp
+value = gets.chomp.to_i
 ash = sample_hash.keys
 
 ash.each do |the_variable|
-  if the_variable == value
-    p value + " is under key: " + the_variable + ", when input is " + value
-    p "Could not find the integer " value
+  if sample_hash.fetch(the_variable) == value
+    p value.to_s + " is under the key: " + the_variable.to_s
+  else
+    p "Could not find the integer " + value.to_s
   end
 end
+
